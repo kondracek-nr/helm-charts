@@ -145,7 +145,7 @@ spec:
       {{ if include "synthetics-job-manager.toMount" . }}
       volumes:
         - name: {{ include "synthetics-job-manager.volumeName" . | quote -}}
-          {{ if .Values.synthetics.userDefinedVariables.userDefinedFile }}
+          {{ if (.Values.synthetics.userDefinedVariables).userDefinedFile }}
           configMap:
             name: {{ include "synthetics-job-manager.configMapName" . | quote }}
           {{ else }}
